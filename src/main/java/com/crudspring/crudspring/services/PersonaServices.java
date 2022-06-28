@@ -1,25 +1,26 @@
 package com.crudspring.crudspring.services;
 
-import com.crudspring.crudspring.interfaceServices.PersonaInterfacesServices;
+import com.crudspring.crudspring.interfaceServices.PersonaInterfacesService;
 import com.crudspring.crudspring.interfaces.PersonaInterfaces;
 import com.crudspring.crudspring.model.Persona;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
-public class PersonaServices implements PersonaInterfacesServices {
+@Service
+public class PersonaServices implements PersonaInterfacesService {
 
     @Autowired
     private PersonaInterfaces data;
 
     @Override
-    public List<Persona> mostrar() {
+    public List<Persona> listar() {
         return (List<Persona>)data.findAll();
     }
 
     @Override
-    public Optional<Persona> monstrarId(int id) {
+    public Optional<Persona> listarId(int id) {
         return Optional.empty();
     }
 

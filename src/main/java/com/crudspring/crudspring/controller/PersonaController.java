@@ -1,7 +1,8 @@
 package com.crudspring.crudspring.controller;
 
-import com.crudspring.crudspring.interfaceServices.PersonaInterfacesServices;
+import com.crudspring.crudspring.interfaceServices.PersonaInterfacesService;
 import com.crudspring.crudspring.model.Persona;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,12 +14,14 @@ import java.util.List;
 @RequestMapping
 public class PersonaController {
 
-    private PersonaInterfacesServices services;
+    @Autowired
+    private PersonaInterfacesService service;
 
-    @GetMapping("/mostrar")
-    public String mostrar(Model model){
-        List<Persona> persona = services.mostrar();
-        model.addAttribute("persona", persona);
+    @GetMapping("/listar")
+    public String listar(Model model){
+        List<Persona> personas = service.listar();
+        model.addAttribute("personas", personas);
         return "index";
     }
+
 }

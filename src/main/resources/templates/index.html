@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th=http://www.thymeleaf.org>"
+<html lang="en" xmlns:th=http://www.thymeleaf.org>
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -19,17 +19,18 @@
               </tr>
           </thead>
             <tbody>
-                <tr th:each="persona:${persona}">
-                    <td>${persona.id}</td>
-                    <td>${persona.name}</td>
-                    <td>${persona.correo}</td>
+                <tr th:each="persona:${personas}">
+                    <td th:text="${persona.id}"></td>
+                    <td th:text="${persona.name}"></td>
+                    <td th:text="${persona.email}"></td>
                     <td>
-                        <a>Editar</a>
-                        <a>Eliminar</a>
+                        <a><input type="button">Actualizar</a>
+                        <a><input type="button">Borrar</a>
                     </td>
                 </tr>
             </tbody>
         </table>
       </div>
+      <a><input type="button" value="Agregar"></a>
 </body>
 </html>
