@@ -26,6 +26,11 @@ public class PersonaServices implements PersonaInterfacesService {
 
     @Override
     public int save(Persona p) {
+        int res = 0;
+        Persona persona = data.save(p);
+        if (!persona.equals(null)){
+            res=0;
+        }
         return 0;
     }
 
