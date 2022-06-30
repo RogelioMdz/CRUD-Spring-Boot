@@ -21,7 +21,7 @@ public class PersonaServices implements PersonaInterfacesService {
 
     @Override
     public Optional<Persona> listarId(int id) {
-        return Optional.empty();
+        return data.findById(id);
     }
 
     @Override
@@ -29,13 +29,13 @@ public class PersonaServices implements PersonaInterfacesService {
         int res = 0;
         Persona persona = data.save(p);
         if (!persona.equals(null)){
-            res=0;
+            res=1;
         }
-        return 0;
+        return res;
     }
 
     @Override
     public void delete(int id) {
-
+        data.deleteById(id);
     }
 }
